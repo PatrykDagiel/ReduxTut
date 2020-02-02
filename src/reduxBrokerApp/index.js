@@ -37,8 +37,7 @@ const claimsHistory = (oldListOfClaims = [], action) => {
     // we care about this form
     return [...oldListOfClaims, action.payload]
   }
-  return oldListOfClaims;
-  // we do not care about the form
+  return oldListOfClaims; // we do not care about the form
 };
 
 const accounting = (bagOfMoney = 100, action) => {
@@ -50,4 +49,11 @@ const accounting = (bagOfMoney = 100, action) => {
   return bagOfMoney;
 };
 
-const
+const policies = (listOfPolicies = [], action) => {
+  if (action.type === 'CREATE_POLICY') {
+      return []...listOfPolicies, action.payload.name];
+  } else if (action.type === 'DELETE_POLICY') {
+    return listOfPolicies.filter(name => name !== action.payload.name);
+  }
+  return listOfPolicies;
+};
