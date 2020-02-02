@@ -8,7 +8,6 @@ const createPolicy = () => {
         amount: 20
     }
     }
-  };
 };
 
 const deletePolicy = (name) => {
@@ -57,3 +56,16 @@ const policies = (listOfPolicies = [], action) => {
   }
   return listOfPolicies;
 };
+
+const {createStore, combineReducers} = Redux;
+const ourDepartments = combineReducers({
+  accounting: accounting,
+  claimsHistory: claimsHistory,
+  policies: policies
+});
+
+const store = createStore(ourDepartments);
+
+
+store.dispatch(createPolicy('Alex', 20));
+console.lof(store.getState());
