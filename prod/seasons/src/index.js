@@ -29,7 +29,7 @@ class App extends React.Component {
   render() {
     return <div className="border red">
       {this.renderContent()}
-    </div>
+    </div>;
 }
 
 ReactDOM.render(<App />, document.querySelector("#root"));
